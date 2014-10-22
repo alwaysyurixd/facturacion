@@ -54,10 +54,10 @@ return array(
 
 		'mysql' => array(
 			'driver'    => 'mysql',
-			'host'      => 'localhost',
-			'database'  => 'facturacion',
-			'username'  => 'root',
-			'password'  => 'yuri',
+			'host'      => 'cajacentral.mysql.eu1.frbit.com',
+			'database'  => 'cajacentral',
+			'username'  => 'cajacentral',
+			'password'  => 'Whc5u39SlSdg40hX',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
