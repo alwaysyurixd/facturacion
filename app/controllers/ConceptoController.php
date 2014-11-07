@@ -22,9 +22,9 @@ class ConceptoController extends \BaseController {
 	public function getCreate()
 	{
 		$concepto = new Concepto;
-		$concepto->nombre = 'derecho de trámite';
-		$concepto->importe_alumno = 1.00;
-		$concepto->importe_otros = 2.00;
+		$concepto->nombre = Input::get('nombre');
+		$concepto->importe_alumno = Input::get('importe_alumnos');
+		$concepto->importe_otros = Input::get('importe_otros');
 		$concepto->save();
 	}
 

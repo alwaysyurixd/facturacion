@@ -1,13 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-</head>
-<body>
-	<form action="operacion" method="post">
-		<label for="dni">DNI</label>
-		<input type="text" name="dni">
-		<button>Enviar</button>
-	</form>
-</body>
-</html>
+@extends('layout')
+@section('content')
+<form action="operacion" method="post">
+	<label for="dni">DNI</label>
+	<input type="number" name="dni">
+	<button>Enviar</button>
+</form>
+@stop

@@ -2,9 +2,33 @@
 <html>
 <head>
 	<title>Nueva Operacion</title>
+	<link rel="stylesheet" href="css/jquery-ui.min.css">
+	<script src="js/jquery.js"></script>
+	<script src="js/jquery-ui.min.js"></script>
+	<script src="js/crearInput.js"></script>
+	<script>
+
+    $(document).on('ready',alerta);
+    function alerta(){
+    $(function(){
+             var conceptos = new Array();
+             @foreach ($conceptos as $concepto)
+         	conceptos.push('{{$concepto->nombre}}');
+         	@endforeach
+              $(".concepto").autocomplete({ //Usamos el ID de la caja de texto donde lo queremos
+                source: conceptos //Le decimos que nuestra fuente es el arreglo
+              });
+           });
+    }
+    $(document).on('ready',boton);
+    function boton(){
+        $('#cargar').on('click',alerta);
+    }
+	</script>
 </head>
 <body>
-	<form action="{{url('operacion/create')}}" method="get">
+    {{Auth::User()->nombre}}
+	<form action="operacion/create/{{$clientes->id}}/{{Auth::User()->id}}" method="get">
 		<table align="center">
 			<tr>
 				<td colspan="2" align="center"><h1>Nueva Operacion</h1></td>
@@ -33,16 +57,12 @@
 				<td><label for="escuela">Escuela:</label></td>
 				<td><input type="text" name="escuela" value="{{$clientes->nombre_escuela}}" disabled></td>
 			</tr>
-			<tr>
+			<tr id="field">
 				<td><label for="concepto">Concepto</label></td>
 				<td>
-					<select name="concepto">
-						<option>--Seleccione un opción--</option>
-						@foreach ($conceptos as $concepto) 
-						<option value="{{$concepto->concepto_id}}">{{$concepto->nombre}}</option>			
-						@endforeach
-					</select>
+					<input type="text" class="concepto" name="concepto">
 				</td>
+				<td><input type="button" value="Nuevo concepto" onclick="crear(this)" id="cargar"></td>
 			</tr>
 			<tr>
 				<td><button>Guardar</button></td>

@@ -1,0 +1,33 @@
+<?php 
+	class ClienteTableSeeder extends Seeder{
+		public function run(){
+			DB::table('clientes')->delete();
+			Cliente::create(array(
+				'id'=>1,
+				'dni'=>47281761,
+				'nombre_cliente'=>'Yuri',
+				'apellido_paterno'=>'Carranza',
+				'apellido_materno'=>'Quispe',
+				'imagen'=>'imagen.jpg',
+				'escuela_id'=>1
+				));
+			Cliente::create(array(
+				'id'=>2,
+				'dni'=>55555555,
+				'nombre_cliente'=>'Raquel',
+				'apellido_paterno'=>'Carranza',
+				'apellido_materno'=>'Quispe',
+				'imagen'=>'imagen2.jpg',
+				'escuela_id'=>1
+				));	
+			Cliente::create(array(
+				'id'=>3,
+				'dni'=>44444444,
+				'nombre_cliente'=>'Julia',
+				'apellido_paterno'=>'Carranza',
+				'apellido_materno'=>'Quispe',
+				'imagen'=>'imagen3.jpg',
+				'escuela_id'=>2
+				));		
+		}
+	}
